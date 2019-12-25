@@ -51,8 +51,10 @@ var ANN_Classes = {
   ],
   test_history = "The beginning of the Viking Age in the British Isles is, however, often given as 793.",
   test_music = "Baroque music is a style of Western art music composed from approximately 1600 to 1750",
+  test_programming = "i love programming, programming is my life?",
   test_bow_history = mimir.bow(test_history, dict),
-  test_bow_music = mimir.bow(test_music, dict);
+  test_bow_music = mimir.bow(test_music, dict),
+  test_bow_programming = mimir.bow(test_programming, dict);
 
 var net = new brain.NeuralNetwork(),
   ann_train = traindata.map(function (pair) {
@@ -67,4 +69,5 @@ console.log('------------------- ANN (brain) ----------------------');
 var predict = net.run(test_bow_history);
 console.log(predict);
 console.log(classes_array[maxarg(predict)]); // prints HISTORY
-console.log(classes_array[maxarg(net.run(test_bow_music))]); // prints MUSIC
+console.log(classes_array[maxarg(net.run(test_bow_music))]),
+console.log(classes_array[maxarg(net.run(test_bow_programming))]); 
